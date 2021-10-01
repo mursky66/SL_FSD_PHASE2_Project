@@ -1,5 +1,5 @@
 <!-- Footer-->
-<footer class="py-5 bg-dark">
+<footer class="footer mt-auto py-3 bg-dark" id="msFooter">
 	<div class="container">
 		<p class="m-0 text-center text-white">Copyright &copy; Flyway 2021</p>
 	</div>
