@@ -41,9 +41,13 @@ public class PlaceServlet extends HttpServlet {
 
 		if (Objects.nonNull(latitude) && !latitude.isEmpty()) {
 			place.setLatitude(Double.valueOf(latitude));
+		}else {
+			place.setLatitude(0d);
 		}
 		if (Objects.nonNull(longitude) && !longitude.isEmpty()) {
 			place.setLongitude(Double.valueOf(longitude));
+		}else {
+			place.setLongitude(0d);
 		}
 
 		boolean isSaved = placeDao.savePlace(place);
