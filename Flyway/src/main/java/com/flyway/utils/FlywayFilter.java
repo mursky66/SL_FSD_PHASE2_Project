@@ -25,6 +25,8 @@ public class FlywayFilter implements Filter {
 		PRIVATE_URLS.add("/Flyway/AirlineServlet");
 		PRIVATE_URLS.add("/Flyway/FlightServlet");
 		PRIVATE_URLS.add("/Flyway/PlaceServlet");
+		PRIVATE_URLS.add("/Flyway/AdminServlet");
+		PRIVATE_URLS.add("/ChangePasswordServlet");
 	}
 
 	@Override

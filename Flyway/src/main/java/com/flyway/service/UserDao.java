@@ -30,4 +30,24 @@ public class UserDao extends ConnectionUtil {
 		}
 		return false;
 	}
+
+	public boolean changePassword(final String newPassword, final Long userId) {
+
+		final String sql = "UPDATE users SET password = ? WHERE userId = ?";
+
+		try (PreparedStatement stmt = getCon().prepareStatement(sql);) {
+
+			stmt.setString(1, newPassword);
+			stmt.setLong(2, userId);
+
+			int updateCnt = stmt.executeUpdate();
+			if (updateCnt > 0) {
+				return true;
+			}
+
+		} catch (Exception ex) {
+			System.err.println(ex.getMessage());
+		}
+		return false;
+	}
 }

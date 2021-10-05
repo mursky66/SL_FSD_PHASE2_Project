@@ -41,13 +41,9 @@ public class PlaceServlet extends HttpServlet {
 
 		if (Objects.nonNull(latitude) && !latitude.isEmpty()) {
 			place.setLatitude(Double.valueOf(latitude));
-		}else {
-			place.setLatitude(0d);
 		}
 		if (Objects.nonNull(longitude) && !longitude.isEmpty()) {
 			place.setLongitude(Double.valueOf(longitude));
-		}else {
-			place.setLongitude(0d);
 		}
 
 		boolean isSaved = placeDao.savePlace(place);
@@ -59,7 +55,7 @@ public class PlaceServlet extends HttpServlet {
 			request.setAttribute("MSG", "Place adding failed");
 			request.setAttribute("MSGTYPE", "ERROR");
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("/place.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("./place.jsp");
 		rd.forward(request, response);
 	}
 

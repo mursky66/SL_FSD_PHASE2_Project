@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.flyway.constants.FlywayConstant;
 import com.flyway.models.User;
 import com.flyway.service.LoginDao;
 
@@ -45,7 +46,7 @@ public class LoginServlet extends HttpServlet {
 			rd.forward(request, response);
 		} else {
 			HttpSession httpSession = request.getSession();
-			httpSession.setAttribute("USER", user);
+			httpSession.setAttribute(FlywayConstant.USER, user);
 
 			RequestDispatcher rd = request.getRequestDispatcher("/admin.jsp");
 			rd.forward(request, response);

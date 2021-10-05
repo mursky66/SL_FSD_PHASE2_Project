@@ -20,8 +20,8 @@
 		<div class="row">
 
 			<div class="col-lg-12 mb-5">
-				<h1 class="fw-bolder mb-1">Access denied: You don't have
-					permission to access this resource</h1>
+				<h1 class="fw-bolder mb-1">Access denied:</h1>
+				<p>You don't have permission to access this resource</p>
 			</div>
 		</div>
 	</div>

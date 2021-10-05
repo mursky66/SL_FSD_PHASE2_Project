@@ -11274,9 +11274,3 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-
-#msFooter {
-    position:fixed;
-    bottom:0;
-    width: 100%;
-}

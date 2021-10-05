@@ -46,12 +46,14 @@
 
 					<div class="mb-2">
 						<label for="departureDate" class="form-label">Departure</label> <input
-							type="text" id="departureDate" class="form-control">
+							type="text" id="departureDate" name="departureDate"
+							class="form-control" placeholder="yyyy-MM-dd">
 					</div>
 
 					<div class="mb-2">
 						<label for="noOfPerson" class="form-label">Number of
-							Persons</label> <input type="text" id="noOfPerson" class="form-control">
+							Persons</label> <input type="text" id="noOfPerson" class="form-control"
+							placeholder="i.e {1, 2, 3}">
 					</div>
 
 					<div class="mb-2">
@@ -64,7 +66,34 @@
 
 			</div>
 		</div>
+
+		<div id="searchResult">
+
+			<div class="card mb-3">
+				<h5 class="card-header">Air India</h5>
+				<div class="card-body">
+					<h5 class="card-title">Bombay to Delhi</h5>
+					<p class="card-text">Depart on 2021-10-04</p>
+					<p class="card-text">Ticket price: 25$</p>
+					<a href="#" class="btn btn-primary">Book Ticket</a>
+				</div>
+			</div>
+
+			<div class="card mb-3">
+				<h5 class="card-header">Indigo</h5>
+				<div class="card-body">
+					<h5 class="card-title">Bombay to Delhi</h5>
+					<p class="card-text">Depart on 2021-10-04</p>
+					<p class="card-text">Ticket price: 68$</p>
+					<a href="#" class="btn btn-primary">Book Ticket</a>
+				</div>
+			</div>
+
+		</div>
+
 	</div>
+	
+	
 	<jsp:include page="footer.jsp" />
 
 	<script type="text/javascript">
@@ -73,7 +102,7 @@
 			$("#toPlace").html("");
 			$("#fromPlace").append('<option value="NA">Select</option>');
 			$("#toPlace").append('<option value="NA">Select</option>');
-			
+
 			$.ajax({
 				url : "http://localhost:8080/Flyway/ListPlacesServlet",
 				type : 'GET',
@@ -81,8 +110,12 @@
 					console.log(res);
 					if (res) {
 						$.each(res, function(key, value) {
-							$("#fromPlace").append('<option value="'+value.placeId+'">'+value.placeName+'</option>');
-							$("#toPlace").append('<option value="'+value.placeId+'">'+value.placeName+'</option>');
+							$("#fromPlace").append(
+									'<option value="'+value.placeId+'">'
+											+ value.placeName + '</option>');
+							$("#toPlace").append(
+									'<option value="'+value.placeId+'">'
+											+ value.placeName + '</option>');
 						});
 					}
 

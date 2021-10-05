@@ -1,5 +1,6 @@
 <!-- Footer-->
-<footer class="footer mt-auto py-3 bg-dark" id="msFooter">
+<footer class="py-5 bg-dark"
+	style="position: fixed; bottom: 0; width: 100%;">
 	<div class="container">
 		<p class="m-0 text-center text-white">Copyright &copy; Flyway 2021</p>
 	</div>
@@ -14,6 +15,11 @@
 
 <script type="text/javascript">
 	$(function() {
-		$("#departureDate").datepicker();
+		$("#departureDate").datepicker({
+			dateFormat : "yy-mm-dd",
+			showAnim : "fold",
+			changeMonth : true,
+			changeYear : true,
+		});
 	});
 </script>

@@ -29,7 +29,9 @@
 						<%=displayName%>
 				</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<li><a class="dropdown-item" href="./LogoutServlet">Logout</a></li>
+					<li><a class="dropdown-item" href="./AdminServlet">Admin panel</a></li>
+					<li><a class="dropdown-item" href="./ChangePasswordServlet">Change Password</a></li>
+					<li><a class="dropdown-item" href="./LogoutServlet">Logout</a></li>
 					</ul></li>
 				<%
 					} else {
