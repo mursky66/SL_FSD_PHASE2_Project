@@ -20,16 +20,14 @@
 		<div class="row">
 
 
-			<div class="col-lg-4 mb-5">
-				<jsp:include page="sidebar.jsp" />
-			</div>
-			<div class="col-lg-8">
+			
+			<div class="col-lg-12">
 				<!-- Post content-->
 				<article>
 					<!-- Post header-->
 					<header class="mb-4">
 						<!-- Post title-->
-						<h1 class="fw-bolder mb-1">Change Password</h1>
+						<h1 class="fw-bolder mb-1">Payment Details<h1>
 					</header>
 				</article>
 
@@ -53,34 +51,28 @@
 						%>
 					</div>
 					<div class="card-body">
-						<form action="./ChangePasswordServlet" method="POST">
+						<form action="./ConformationServlet" method="GET">
 							<div class="mb-3 row">
-								<label for="current" class="col-sm-4 col-form-label">Current</label>
+								<label for="airlineName" class="col-sm-2 col-form-label">Airline
+									Name</label>
 								<div class="col-sm-10">
-									<input type="password" class="form-control" id="currentPwd"
-										name="currentPwd">
+									<input type="text" class="form-control" id="airlineName"
+										name="airlineName">
 								</div>
 							</div>
 							<div class="mb-3 row">
-								<label for="new" class="col-sm-4 col-form-label">New</label>
+								<label for="airlineCode" class="col-sm-2 col-form-label">Airline
+									Code</label>
 								<div class="col-sm-10">
-									<input type="password" class="form-control" id="newPwd"
-										name="newPwd">
-								</div>
-							</div>
-							<div class="mb-3 row">
-								<label for="conform" class="col-sm-4 col-form-label">Conform</label>
-								<div class="col-sm-10">
-									<input type="password" class="form-control" id="confirmPwd"
-										name="confirmPwd">
+									<input type="text" class="form-control" id="airlineCode"
+										name="airlineCode">
 								</div>
 							</div>
 
 							<div class="mb-3 row">
-								<label class="col-sm-4 col-form-label">&nbsp;</label>
+								<label class="col-sm-2 col-form-label">&nbsp;</label>
 								<div class="col-sm-10">
-									<button type="submit" class="btn btn-primary">Change
-										Password</button>
+									<button type="submit" class="btn btn-primary">Make Payment</button>
 								</div>
 							</div>
 						</form>

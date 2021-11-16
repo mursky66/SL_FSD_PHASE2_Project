@@ -10,6 +10,8 @@ public class Flight {
 	private Long airlineId;
 	private Long fromPlaceId;
 	private Long toPlaceId;
+	
+	private String airlineName;
 
 	private Integer passengerCapacity;
 	private Date departureDate;
@@ -57,5 +59,12 @@ public class Flight {
 	public void setDepartureDate(Date departureDate) {
 		this.departureDate = departureDate;
 	}
+	public String getAirlineName() {
+		return airlineName;
+	}
+	public void setAirlineName(String airlineName) {
+		this.airlineName = airlineName;
+	}
 
+	
 }

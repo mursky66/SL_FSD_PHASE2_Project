@@ -7,7 +7,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="Flyway Ticketbooking (Admin panel)" />
-<meta name="author" content="Mayur Solanki" />
+<meta name="author" content="Apurva Doctor" />
 
 <title>Flyway-TicketBooking</title>
 

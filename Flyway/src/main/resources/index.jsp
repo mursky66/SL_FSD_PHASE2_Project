@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@page import="com.flyway.models.Flight"%>
+<%@page import="java.util.List"%>
 <html lang="en">
 <head>
 
@@ -29,18 +31,18 @@
 					</header>
 				</article>
 
-				<form class="mb-4 input-group">
+				<form class="mb-4 input-group" action="./SearchFlightServlet" method="post">
 
 					<div class="mb-3">
 						<label for="fromPlace" class="form-label">From</label> <select
-							class="form-select" id="fromPlace" name="fromPlace"
+							class="form-select" id="fromPlace" name="fromPlaceId"
 							aria-label="From">
 						</select>
 					</div>
 
 					<div class="mb-3">
 						<label for="toPlace" class="form-label">To</label> <select
-							class="form-select" id="toPlace" name="toPlace" aria-label="To">
+							class="form-select" id="toPlace" name="toPlaceId" aria-label="To">
 						</select>
 					</div>
 
@@ -59,7 +61,7 @@
 					<div class="mb-2">
 						<label class="form-label">&nbsp;</label>
 						<button class="btn btn-primary form-control" id="button-search"
-							type="button">Search</button>
+							type="submit" onclick="">Search</button>
 					</div>
 
 				</form>
@@ -68,14 +70,34 @@
 		</div>
 
 		<div id="searchResult">
+		
+			<%
+			if(request.getAttribute("FLIGHTS")!=null){
+				List<Flight> flights = (List<Flight>)request.getAttribute("FLIGHTS");
+			
+				for(Flight f: flights){
+				%>
+				<div class="card mb-3">
+				<h5 class="card-header"><%=f.getAirlineName() %></h5>
+				<div class="card-body">
+					<h5 class="card-title">Bombay to Delhi</h5>
+					<p class="card-text">Depart on 2021-10-04</p>
+					<p class="card-text">Ticket price: 25$</p>
+					<a href="./PaymentServlet" class="btn btn-primary">Book Ticket</a>
+				</div>
+			</div>
+				<%	
+				}
+			}
+			%>
 
-			<div class="card mb-3">
+			<!-- <div class="card mb-3">
 				<h5 class="card-header">Air India</h5>
 				<div class="card-body">
 					<h5 class="card-title">Bombay to Delhi</h5>
 					<p class="card-text">Depart on 2021-10-04</p>
 					<p class="card-text">Ticket price: 25$</p>
-					<a href="#" class="btn btn-primary">Book Ticket</a>
+					<a href="./PaymentServlet?fromPlaceId=3&toPlaceId=6&departureDate=2021-10-15" class="btn btn-primary">Book Ticket</a>
 				</div>
 			</div>
 
@@ -85,15 +107,13 @@
 					<h5 class="card-title">Bombay to Delhi</h5>
 					<p class="card-text">Depart on 2021-10-04</p>
 					<p class="card-text">Ticket price: 68$</p>
-					<a href="#" class="btn btn-primary">Book Ticket</a>
+					<a href="./PaymentServlet" class="btn btn-primary">Book Ticket</a>
 				</div>
 			</div>
-
+ -->
 		</div>
 
 	</div>
-	
-	
 	<jsp:include page="footer.jsp" />
 
 	<script type="text/javascript">
@@ -119,6 +139,21 @@
 						});
 					}
 
+				}
+			});
+		}
+
+		function searchFlights() {
+
+			$.ajax({
+				url : "http://localhost:8080/Flyway/SearchFlightServlet",
+				type : 'POST',
+				success : function(res) {
+					console.log(res);
+					/* if (res) {
+						$.each(res, function(key, value) {
+						});
+					} */
 				}
 			});
 		}
